@@ -16,11 +16,11 @@ L’ensemble du matériel s’articule autour :
 -	D’un boitier,
 -	D’une quincaillerie standard (vis, rondelles, et écrous de 1.6, 2.5 et 3mm), câblage, gaine thermo-rétractable.
 
-Logiciel
+Logiciel<br/>
 Le logiciel est téléversé dans l’ESP32 via l’interface Arduino IDE (ou un autre compilateur) après sa compilation. 
 Il pourra par la suite être mis à jour par une procédure OTA (Other The Air), mais le premier téléversement initial devra être effectué directement par la prise USB de l’ESP32.
 
-Principe de fonctionnement
+Principe de fonctionnement<br/>
 Le module JWS est auto-alimenté via la prise USB-C qu’il commande, et ne nécessite donc aucune alimentation externe. 
 Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED. 
 Puis il se connecte sur le réseau Wifi sur lequel est présent la box Jeedom (à l’exception du premier lancement, voir chapitre ‘Premier lancement’). 
