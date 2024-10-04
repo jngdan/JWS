@@ -3,7 +3,7 @@ JWS (Jeedom Watch System) is a module wich is able to monitor a wrong behavior o
 
 [FR]
 
-Objectifs
+Objectifs<br/>
 Ce module de surveillance JWS à base d’un microcontrôleur ESP32 permet, en toute autonomie, de détecter des défaillances éventuelles d’une box Jeedom (Atlas, RPi, mini-PC, etc…), et de la redémarrer électriquement jusqu’à deux fois pour tenter de récupérer un fonctionnement normal. 
 
 L’ensemble du matériel s’articule autour :
