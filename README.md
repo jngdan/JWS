@@ -24,8 +24,8 @@ L’ensemble du matériel s’articule autour :
 -	D’une feuille acrylique translucide fumée de 75x35x1mm (cache pour l’écran OLED),
 -	De la quincaillerie standard (vis, rondelles, et écrous de 1.6, 2.5 et 3mm), du câblage (calibre 24 AWG), de la gaine thermo-rétractable.
 
-
 Principe de fonctionnement<br/>
+
 Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage successif pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED et afficher le cas échéant un logo. 
 Puis il se connecte sur le même réseau Wifi que celui utilisé par la box domotique, à l’exception du premier lancement. 
 En phase de surveillance, il va ensuite effectuer toutes les 30 secondes l’ensemble des tests suivants :  
