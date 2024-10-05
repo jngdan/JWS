@@ -29,3 +29,5 @@ Toutes les 30 secondes, il va effectuer ensuite les tests suivants :
 -	Maintien de la connexion MQTT,
 -	Emission et attente de la réponse à un message transmit en MQTT.
 En cas de détection d’erreur(s), il va signaler celle(s)-ci avec un affichage sur l’écran OLED et les LEDs. 
+
+![image](https://github.com/user-attachments/assets/9ce92a17-9502-4d74-9f6a-3c34c440ea9e)
