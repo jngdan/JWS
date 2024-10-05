@@ -8,32 +8,34 @@ JWS (Jeedom Watch System) is a ESP module wich is able to monitor any wrong beha
 
 Présentation générale <br/>
 
-Le module de surveillance JWS s’articule autour d’un microcontrôleur ESP32 et permet, en toute autonomie, de détecter des défaillances éventuelles d’une box domotique (Atlas, RPi, mini-PC, etc…) ou de tout autre box domotique (Home Assistant, etc…), au niveau applicatif (Jeedom/HA via protocole MQTT) et réseau (IP), et de la redémarrer électriquement jusqu’à deux fois pour tenter de récupérer un fonctionnement normal.
-
-Ce module se connecte d’une part sur une alimentation 5v par un câble USB-C mâle (15W max), et d’autre part sur la box domotique également avec un câble USB-C mâle. Il s’auto-alimente via la prise USB-C qu’il commande, et ne nécessite donc aucune alimentation externe.  
+Le module de surveillance JWS s’articule autour d’un microcontrôleur ESP32 et permet, en toute autonomie, de détecter des défaillances éventuelles d’un système domotique (Jeedom, Home Assistant, ou autre) hébergé sur une box autonome (type Atlas, Luna, RPi, mini-PC, etc…). 
+La RAZ étant effectuée par un redémarrage électrique (arrêt/marche), ce module ne convient pas pour des systèmes domotiques virtuels hébergés sur des NAS ou autres serveurs assurant d’autres fonctions.  
+Les défaillances sont détectées au niveau applicatif (Jeedom/HA via protocole MQTT) et réseau (IP), et le module va redémarrer électriquement jusqu’à deux fois la box domotique pour tenter de récupérer un fonctionnement normal.
+Il se connecte d’une part sur une alimentation 5v par un câble USB-C mâle (15W max), et d’autre part sur la box domotique également avec un câble USB-C mâle. Il s’auto-alimente directement via la prise USB-C qu’il commande, et ne nécessite donc aucune alimentation externe.  
 
 L’ensemble du matériel s’articule autour :
--	D’un ESP32 standard avec son support 30 broches, 
+-	D’un ESP32 4Mo/240Mhz/Wifi standard 30 broches, avec son support, 
 -	D’un module relais avec contacts NO (Normally Open) et NC (Normally Closed), 
--	D’un écran OLED de type SH1106 ou SSD1306 offrant une résolution de 128 (L) x 64 (H) pixels avec bus I2c (4 broches : GND, VCC, SCL, SDA), 
--	D’une LED RGB (ou 3 LED rouge, verte, et bleue) avec ses 3 résistances de limitation de 220 ohms,
+-	D’un écran OLED de type SH1106 ou SSD1306 offrant une résolution de 128 (L) x 64 (H) pixels avec interface I2c (4 broches : GND, VCC, SCL, SDA), 
+-	D’une LED RGB (ou 3 LED rouge, verte, et bleue) avec ses 3 résistances de limitation de 180 à 270 ohms,
 -	De deux prises USB-C type châssis disposant au minimum de 6 contacts (VBUS, GND, D+, D-, CC1, CC2),
--	Un câble USB-C to USB-C mâle coudé (USB-C OUT vers box),
--	D’un boitier,
--	D’une quincaillerie standard (vis, rondelles, et écrous de 1.6, 2.5 et 3mm), câblage, gaine thermo-rétractable.
+-	D’un câble USB-C to USB-C mâle (prise USB-C OUT vers la box),
+-	D’un boitier (dimensions intérieures minimales : L120 x l75 x h27 mm),
+-	D’une feuille acrylique translucide fumée de 75x35x1mm (cache pour l’écran OLED),
+-	De la quincaillerie standard (vis, rondelles, et écrous de 1.6, 2.5 et 3mm), du câblage (calibre 24 AWG), de la gaine thermo-rétractable.
 
-Logiciel<br/>
-Le logiciel est téléversé dans l’ESP32 via l’interface Arduino IDE (ou un autre compilateur) après sa compilation. 
-Il pourra par la suite être mis à jour par une procédure OTA (Other The Air), mais le premier téléversement initial devra être effectué directement par la prise USB de l’ESP32.
 
 Principe de fonctionnement<br/>
-Le module JWS est auto-alimenté via la prise USB-C qu’il commande, et ne nécessite donc aucune alimentation externe. 
-Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED. 
-Puis il se connecte sur le réseau Wifi sur lequel est présent la box Jeedom (à l’exception du premier lancement, voir chapitre ‘Premier lancement’). 
-Toutes les 30 secondes, il va effectuer ensuite les tests suivants :  
--	Ping réseau vers la box Jeedom,
+Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage successif pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED et afficher le cas échéant un logo. 
+Puis il se connecte sur le même réseau Wifi que celui utilisé par la box domotique, à l’exception du premier lancement. 
+En phase de surveillance, il va ensuite effectuer toutes les 30 secondes l’ensemble des tests suivants :  
+-	Ping réseau vers la box domotique,
+Ce ping permet de s’assurer que la box domotique est toujours connectée au réseau, et qu’elle n’est pas figée ou plantée.  
 -	Maintien de la connexion MQTT,
+Une connexion MQTT doit être activée et gérée par un serveur MQTT (brocker Mosquitto,…), qui se signale via la messagerie associée. L’absence de ce signalement peut résulter d’un arrêt logiciel du serveur. Généralement, les box domotiques s’appuient sur ce protocole pour gérer les modules présents sur le réseau Zigbee ou les modules connectés en Wifi. Il n’est donc pas nécessaire dans la plupart des cas de prévoir l’installation et l’activation spécifique d’un plugin de gestion de ce protocole.   
 -	Emission et attente de la réponse à un message transmit en MQTT.
-En cas de détection d’erreur(s), il va signaler celle(s)-ci avec un affichage sur l’écran OLED et les LEDs. 
+Outre la vérification de la présence d’un brocker, le module JWS va émettre un message MQTT spécifique (ping) et attendre en retour la réponse de la box domotique (pong). S’il n’y a pas de réponse, il est possible que le démon du plugin se soit arrêté.
+
+Dans tous les cas, toute(s) détection(s) d’erreur(s) seront signalées par un affichage d’un écran récapitulatif sur l’écran OLED et l’allumage des LEDs correspondantes.
 
 
