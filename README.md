@@ -1,10 +1,15 @@
 # JWS
 JWS (Jeedom Watch System) is a ESP module wich is able to monitor any wrong behavior of Jeedom/HA box and able to reset it by a short main power switch off. 
 
+![image](https://github.com/user-attachments/assets/9ce92a17-9502-4d74-9f6a-3c34c440ea9e)
+
 [FR]
 
-Objectifs<br/>
-Ce module de surveillance JWS à base d’un microcontrôleur ESP32 permet, en toute autonomie, de détecter des défaillances éventuelles d’une box Jeedom (Atlas, RPi, mini-PC, etc…), et de la redémarrer électriquement jusqu’à deux fois pour tenter de récupérer un fonctionnement normal. 
+
+Présentation générale
+Le module de surveillance JWS s’articule autour d’un microcontrôleur ESP32 et permet, en toute autonomie, de détecter des défaillances éventuelles d’une box domotique (Atlas, RPi, mini-PC, etc…) ou de tout autre box domotique (Home Assistant, etc…), au niveau applicatif (Jeedom/HA via protocole MQTT) et réseau (IP), et de la redémarrer électriquement jusqu’à deux fois pour tenter de récupérer un fonctionnement normal.
+
+Ce module se connecte d’une part sur une alimentation 5v par un câble USB-C mâle (15W max), et d’autre part sur la box domotique également avec un câble USB-C mâle. Il s’auto-alimente via la prise USB-C qu’il commande, et ne nécessite donc aucune alimentation externe.  
 
 L’ensemble du matériel s’articule autour :
 -	D’un ESP32 standard avec son support 30 broches, 
@@ -30,4 +35,4 @@ Toutes les 30 secondes, il va effectuer ensuite les tests suivants :
 -	Emission et attente de la réponse à un message transmit en MQTT.
 En cas de détection d’erreur(s), il va signaler celle(s)-ci avec un affichage sur l’écran OLED et les LEDs. 
 
-![image](https://github.com/user-attachments/assets/9ce92a17-9502-4d74-9f6a-3c34c440ea9e)
+
