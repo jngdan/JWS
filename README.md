@@ -1,5 +1,5 @@
 # JWS
-JWS (Jeedom Watch System) is an ESP module wich is able to monitor any wrong behavior of Jeedom/HA box and able to reset it by a short main power switch off. 
+JWS (Jeedom Watch System) is an ESP based module wich is able to monitor any wrong behavior of Jeedom/HA box and able to reset it by a short main power switch off. 
 
 ![image](https://github.com/user-attachments/assets/9ce92a17-9502-4d74-9f6a-3c34c440ea9e)
 
