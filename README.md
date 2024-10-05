@@ -29,13 +29,13 @@ Principe de fonctionnement<br/>
 Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage successif pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED et afficher le cas échéant un logo. 
 Puis il se connecte sur le même réseau Wifi que celui utilisé par la box domotique, à l’exception du premier lancement. 
 En phase de surveillance, il va ensuite effectuer toutes les 30 secondes l’ensemble des tests suivants :  
--	Ping réseau vers la box domotique,
+-	Ping réseau vers la box domotique.<br> 
 Ce ping permet de s’assurer que la box domotique est toujours connectée au réseau, et qu’elle n’est pas figée ou plantée.  
--	Maintien de la connexion MQTT,
+-	Maintien de la connexion MQTT.<br>
 Une connexion MQTT doit être activée et gérée par un serveur MQTT (brocker Mosquitto,…), qui se signale via la messagerie associée. L’absence de ce signalement peut résulter d’un arrêt logiciel du serveur. Généralement, les box domotiques s’appuient sur ce protocole pour gérer les modules présents sur le réseau Zigbee ou les modules connectés en Wifi. Il n’est donc pas nécessaire dans la plupart des cas de prévoir l’installation et l’activation spécifique d’un plugin de gestion de ce protocole.   
--	Emission et attente de la réponse à un message transmit en MQTT.
+-	Emission et attente de la réponse à un message transmit en MQTT.<br>
 Outre la vérification de la présence d’un brocker, le module JWS va émettre un message MQTT spécifique (ping) et attendre en retour la réponse de la box domotique (pong). S’il n’y a pas de réponse, il est possible que le démon du plugin se soit arrêté.
-
+<br>
 Dans tous les cas, toute(s) détection(s) d’erreur(s) seront signalées par un affichage d’un écran récapitulatif sur l’écran OLED et l’allumage des LEDs correspondantes.
 
 
