@@ -43,7 +43,7 @@ ailleurs.
 2.- Affichage des informations sur l'écran OLED 
 
 ------------------------------------------------------------------------------------------------------------
-<Adresse IP de l'ESP>                                                              Etat de la Connexion Wifi
+<Adresse IP de la box domotique>                                                   Etat de la Connexion Wifi
 ------------------------------------------------------------------------------------------------------------
 Connexion IP             OK ou KO   Nb de tests en erreur  |
 Connexion MQTT           OK ou KO   Nb de tests en erreur  | Nb d'activations restantes du relais (de 2 à 0)
