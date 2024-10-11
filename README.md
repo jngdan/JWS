@@ -16,7 +16,7 @@ Il se connecte d’une part sur une alimentation 5v par un câble USB-C mâle (1
 L’ensemble du matériel s’articule autour :
 -	D’un ESP32 4Mo/240Mhz/Wifi standard 30 broches, avec son support, 
 -	D’un module relais avec contacts NO (Normally Open) et NC (Normally Closed), 
--	D’un écran OLED de type SSH1106 ou SSD1306 offrant une résolution de 128 (L) x 64 (H) pixels avec interface I2c (4 broches : GND, VCC, SCL, SDA), 
+-	D’un écran OLED de type SH1106 ou SSD1306 offrant une résolution de 128 (L) x 64 (H) pixels avec interface I2c (4 broches : GND, VCC, SCL, SDA), 
 -	D’une LED RGB (ou 3 LED rouge, verte, et bleue) avec ses 3 résistances de limitation de 180 à 270 ohms,
 -	De deux prises USB-C type châssis disposant au minimum de 6 contacts (VBUS, GND, D+, D-, CC1, CC2),
 -	D’un câble USB-C to USB-C mâle (prise USB-C OUT vers la box),
@@ -51,7 +51,7 @@ It connects in one hand to a 5v power supply via a male USB-C cable (15W max), a
 All the material revolves around:
 - A standard 30-pin ESP32 4MB/240Mhz/Wifi, with its dedicated support, 
 - A relay module with NO (Normally Open) and NC (Normally Closed) contacts, 
-- An SSH1106 or SSD1306 type OLED screen offering a resolution of 128 (W) x 64 (H) pixels with I2c interface (4 pins: GND, VCC, SCL, SDA), 
+- An SH1106 or SSD1306 type OLED screen offering a resolution of 128 (W) x 64 (H) pixels with I2c interface (4 pins: GND, VCC, SCL, SDA), 
 - An RGB LED (can be replaced by 3 red, green and blue LEDs) with its 3 limiting resistors from 180 to 270 ohms,
 - Two chassis type USB-C sockets with at least 6 contacts (VBUS, GND, D+, D-, CC1, CC2),
 - A male USB-C to USB-C cable (USB-C OUT socket to the box),
