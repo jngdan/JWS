@@ -37,10 +37,11 @@ Une connexion MQTT doit être activée et gérée par un serveur MQTT (brocker M
 Outre la vérification de la présence d’un brocker, le module JWS va émettre un message MQTT spécifique (ping) et attendre en retour la réponse de la box domotique (pong). S’il n’y a pas de réponse, il est possible que le démon du plugin se soit arrêté.
 <br>
 Dans tous les cas, toute(s) détection(s) d’erreur(s) seront signalées par un affichage d’un écran récapitulatif sur l’écran OLED et l’allumage des LEDs correspondantes.
-<br><br>
+<br/><br/>
 [UK]
-
-General<br>
+<br/>
+<br/>
+General<br/>
 
 The JWS monitoring module is based around an ESP32 microcontroller and allows, in complete autonomy, to detect possible failures of a home automation system (Jeedom, Home Assistant, or other) hosted on an autonomous box (Atlas, Luna type). , RPi, mini-PC, etc…). 
 Since the reset is carried out by an electrical restart (off/on), this module is not suitable for virtual home automation systems hosted on NAS or other servers providing any other functions.
@@ -58,11 +59,11 @@ All the material revolves around:
 - A translucent smoked acrylic sheet measuring 75x35x1mm (cover for the OLED screen),
 - Standard hardware (1.6, 2.5 and 3mm screws, washers, and nuts), wiring (22 AWG gauge), heat shrink tubing.
 
-Operation<br>
+Operations <br>
 
 When starting, ESP32 will perform a self-test of the LEDs (successive lighting for 0.5 seconds of the red, green and blue LEDs), and check the presence of an OLED screen and display a logo. 
 Then it connects to the same WiFi network as that used by the home automation box, with the exception of the first launch. 
-In the monitoring phase, it will then perform all of the following tests every 30 seconds:  
+In the monitoring phase, it will then perform all of the following tests every 30 seconds :  
 - Network ping to the home automation box. 
 This ping ensures that the home automation box is still connected to the network, and that it is not frozen or crashed.  
 - Maintaining the MQTT connection.
