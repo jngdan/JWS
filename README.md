@@ -43,35 +43,32 @@ Dans tous les cas, toute(s) détection(s) d’erreur(s) seront signalées par un
 <br/>
 General<br/>
 
-The JWS monitoring module is based around an ESP32 microcontroller and allows, in complete autonomy, to detect possible failures of a home automation system (Jeedom, Home Assistant, or other) hosted on an autonomous box (Atlas, Luna type). , RPi, mini-PC, etc…). 
-Since the reset is carried out by an electrical restart (off/on), this module is not suitable for virtual home automation systems hosted on NAS or other servers providing any other functions.
-Faults are detected at the application level (Jeedom/HA via the MQTT protocol) and network level (IP), and the module will electrically restart the home automation box up to two times to try to recover normal operation. 
-It connects in one hand to a 5v power supply via a male USB-C cable (15W max), and on other hand to the home automation box also with a male USB-C cable. It is self-powered directly via the USB-C socket it controls, and therefore does not require any external power supply.
+The JWS monitoring module is an ESP32 based microcontroller and allows, in complete autonomy, detection of possible failures of a home automation system (like Jeedom, Home Assistant, or any other system) hosted on an autonomous box (Atlas, Luna , RPi, mini-PC, etc…). 
+Since the reset is carried out by an electrical restart (off/on), this module is not suitable for virtual home automation systems hosted on NAS or servers providing other functions.
+Failures are detected at the application level (Jeedom/HA via MQTT protocol) and network level (IP), and in this case module will electrically restart the home automation box up to two times in order to try to recover normal operation. 
+It connects in one hand to a 5v power supply via a male USB-C cable (15W max), and in other hand to the home automation box also with a male USB-C cable. It is self-powered directly via the USB-C socket it controls, and therefore does not require any external power supply.
 
-All the material revolves around:
+Material needed :
 - A standard 30-pin ESP32 4MB/240Mhz/Wifi, with its dedicated support, 
 - A relay module with NO (Normally Open) and NC (Normally Closed) contacts, 
-- An SH1106 or SSD1306 type OLED screen offering a resolution of 128 (W) x 64 (H) pixels with I2c interface (4 pins: GND, VCC, SCL, SDA), 
-- An RGB LED (can be replaced by 3 red, green and blue LEDs) with its 3 limiting resistors from 180 to 270 ohms,
+- A SH1106 or SSD1306 type OLED screen offering a resolution of 128 (W) x 64 (H) pixels, with I2c interface (4 pins: GND, VCC, SCL, SDA), 
+- A RGB LED (can be replaced by 3 red, green and blue LEDs) with its 3 limiting resistors from 180 to 270 ohms,
 - Two chassis type USB-C sockets with at least 6 contacts (VBUS, GND, D+, D-, CC1, CC2),
 - A male USB-C to USB-C cable (USB-C OUT socket to the box),
-- A case (minimum interior dimensions: L120 x l75 x h27 mm),
-- A translucent smoked acrylic sheet measuring 75x35x1mm (cover for the OLED screen),
+- A case (inside dimensions must be at least L120 x W75 x H27 mm),
+- A translucent smoked acrylic sheet L75 x W35 x H1mm (cover for the OLED screen),
 - Standard hardware (1.6, 2.5 and 3mm screws, washers, and nuts), wiring (22 AWG gauge), heat shrink tubing.
 
 Operations <br>
 
-When starting, ESP32 will perform a self-test of the LEDs (successive lighting for 0.5 seconds of the red, green and blue LEDs), and check the presence of an OLED screen and display a logo. 
+When starting, ESP32 will perform a self-test of the LEDs (successive lighting for 0.5 seconds of the red, green and blue LEDs), and check the availibity of an OLED screen, and display a logo if true. 
 Then it connects to the same WiFi network as that used by the home automation box, with the exception of the first launch. 
 In the monitoring phase, it will then perform all of the following tests every 30 seconds :  
 - Network ping to the home automation box. 
-This ping ensures that the home automation box is still connected to the network, and that it is not frozen or crashed.  
+This ping ensures that the home automation box is still connected to the network, and that it is not frozen or crashed.
 - Maintaining the MQTT connection.
-An MQTT connection must be activated and managed by an MQTT server (Mosquitto brocker, etc.), which is reported via the associated messaging. The absence of this signal may result from a software shutdown of the server. Generally, home automation boxes rely on this protocol to manage modules present on the Zigbee network or modules connected via Wifi. It is therefore not necessary in most cases to provide for the installation and specific activation of a plugin for managing this protocol.
+An MQTT connection must be activated and managed by an MQTT server (Mosquitto brocker, etc...), which is reported via the associated messaging. The absence of this signal may result from a software shutdown of the server. Generally, home automation boxes rely on this protocol to manage modules present on the Zigbee network or modules connected via Wifi. It is therefore not necessary in most cases to provide for the installation and specific activation of a plugin for managing this protocol.
 - Sending and waiting for the response to a message transmitted in MQTT.<br>
 In addition to checking the presence of a brocker, the JWS module will send a specific MQTT message (ping) and wait in return for a response from the home automation box (pong). If there is no response, the plugin daemon may have stopped.
 <br>
-In all cases, any error detection(s) will be indicated by a display of a summary screen on the OLED screen and the lighting of the corresponding LEDs.
-
-
-
+In all cases, all failures detection will be highlighted with a display of a summary screen on the OLED screen, and lighting of the corresponding LEDs.
