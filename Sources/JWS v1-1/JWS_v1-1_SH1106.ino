@@ -323,7 +323,7 @@ void setup() {
   // Initialisation du watchdog WDT pour le fonctionnement en multi-tâche
   esp_task_wdt_deinit();                
   esp_task_wdt_config_t wdt_config = {
-        .timeout_ms = 60000,           // Timeout pour les tâches fixé à 60 secondes max
+        .timeout_ms = 120000,           // Timeout pour les tâches fixé à 2 munites max
         .idle_core_mask = (1 << portNUM_PROCESSORS) - 1, // Bitmask pour les cores
         .trigger_panic = true          // Active le RESET si timeout
   };
