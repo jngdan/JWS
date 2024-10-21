@@ -38,6 +38,38 @@ Outre la vérification de la présence d’un brocker, le module JWS va émettre
 <br>
 Dans tous les cas, toute(s) détection(s) d’erreur(s) seront signalées par un affichage d’un écran récapitulatif sur l’écran OLED et l’allumage des LEDs correspondantes.
 <br/><br/>
+
+-----------------------------
+<u>Historique des versions</u><br/>
+
+V0.1 – 06 Septembre 2024
+Version initiale
+
+Cette version est minimaliste et ne gère aucun dispositif de retour d’état (écran OLED ou LED). Tous les paramètres Wifi et MQTT (serveur, mots de passe, @IP, ports) sont codés directement dans le fichier source.<br>
+Non proposée en téléchargement.
+
+V1.0 – 04 Octobre 2024
+
+La version 1.0 est la première version diffusée et mise en service, et va prendre en charge :
+-	Un écran OLED de type SH1106 ou SSD1306 (optionnel), 
+-	Un indicateur d’état par diode LED RGB (ou 3 LEDs séparées rouges, verte et bleue), 
+-	La mémorisation des paramètres Wifi et MQTT en mémoire EEPROM,
+-	La gestion de la connexion au réseau Wifi avec les paramètres renseignés,
+-	Les mises à jour par procédure OTA, soit par serveur web dédié, soit par l’IDE ARduino.
+Ainsi que la correction de quelques bugs résiduels mineurs.
+
+V1.1 – 11 Octobre 2024
+
+ Les évolutions et corrections apportées par la version 1.1 sont les suivantes :
+-	Modification de la gestion des LED pour passer en mode PWM, permettant en particulier un allumage et une extinction progressive, et le réglage de la luminosité (via le code source).
+-	La gestion du multi-tâche pour l’initialisation du module en exploitant les deux cœurs de l’ESP32,
+-	L’ajout d’une barre de progression et du libellé de l’étape d’initialisation effectuée,
+-	La correction des bugs suivants :<br>
+	* Le comportement lorsque les identifiants Wifi entrés dans le mode AP sont erronés,<br>
+	* La suppression du délai d’attente de 30 secondes juste après l’initialisation.
+
+----------------------------
+
 [UK]
 <br/>
 <br/>
@@ -72,3 +104,34 @@ An MQTT connection must be activated and managed by an MQTT server (Mosquitto br
 In addition to checking the presence of a brocker, the JWS module will send a specific MQTT message (ping) and wait in return for a response from the home automation box (pong). If there is no response, the plugin daemon may have stopped.
 <br>
 In all cases, all failures detection will be highlighted with a display of a summary screen on the OLED screen, and lighting of the corresponding LEDs.
+
+----------------------------
+
+Versions history<br/>
+
+V0.1 – September 06, 2024
+Initial Release
+
+This version is minimalist and does not manage any status feedback device (OLED or LED screen). All Wifi and MQTT settings (server, passwords, @IP, ports) are directly encoded in the source file.<br> 
+Not available for downloading.
+
+V1.0 – October 04, 2024
+
+Version 1.0 is the first release and release, and will support:
+-	An OLED screen of type SH1106 or SSD1306 (optional), 
+-	A status indicator per RGB LED diode (or 3 separate red, green and blue LEDs), 
+-	Wifi and MQTT parameters recorded in EEPROM memory,
+-	Connection management to the Wi-Fi network with the defined parameters,
+-	Updates with OTA procedure, either by dedicated web server or the Arduino IDE.
+As well as the correction of some minor residual bugs.
+
+v1.1 – October 11, 2024
+
+ Changes and corrections brought by version 1.1 are as follows:
+-	Modification of the LED management to switch to PWM mode, allowing a gradual on/off, and adjustment of the brightness (via the source code).
+-	Multi-tasking management for initialization step with the dual cores of the ESP32,
+-	Adding a progress bar and labels of initialization step performed,
+-	Fixed the following bugs:<br>
+	* Behavior when the Wifi credentials entered in AP mode are wrong,
+	* Removing the 30-second timeout after initialization.<br>
+
