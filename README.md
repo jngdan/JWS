@@ -142,4 +142,4 @@ v1.1 – October 11, 2024
 
 v1.11 - November 2nd, 2024
 
-Time cycle for tests is more longer from 30 seconds to 1 minute, in order to allow updating of domotic system if takes more time than expected in some cases, specially for MQTT. A stop/restart will occur now 5 minutes after an error rises up instead of 2 minutes and half.
+Time cycle for tests is longer from 30 seconds to 1 minute, in order to allow updating of system if takes more time than expected in some cases, especially for MQTT. A stop/restart will occur now 5 minutes after an error rises up instead of 2 minutes and half.
