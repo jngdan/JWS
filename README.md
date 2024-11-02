@@ -28,7 +28,7 @@ Principe de fonctionnement<br/>
 
 Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage successif pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED et afficher le cas échéant un logo. 
 Puis il se connecte sur le même réseau Wifi que celui utilisé par la box domotique, à l’exception du premier lancement. 
-En phase de surveillance, il va ensuite effectuer toutes les 30 secondes l’ensemble des tests suivants :  
+En phase de surveillance, il va ensuite effectuer toutes les 60 secondes (v1.11) l’ensemble des tests suivants :  
 -	Ping réseau vers la box domotique.<br> 
 Ce ping permet de s’assurer que la box domotique est toujours connectée au réseau, et qu’elle n’est pas figée ou plantée.  
 -	Maintien de la connexion MQTT.<br>
@@ -68,6 +68,11 @@ V1.1 – 11 Octobre 2024
 	* Le comportement lorsque les identifiants Wifi entrés dans le mode AP sont erronés,<br>
 	* La suppression du délai d’attente de 30 secondes juste après l’initialisation.
 
+v1.11 - 02 Novembre 2024
+
+Augmentation du temps de cycle des tests de 30 secondes à 1 minute, permettant au système hôte de procéder à certaines mises à jour pouvant être plus longues que prévues, en particulier pour MQTT. Un arrêt/marche ne sera déclenché que 5 minutes  
+après l'apparition d'une erreur, au lieu de 2 minutes 30 secondes.
+
 ----------------------------
 
 [UK]
@@ -95,7 +100,7 @@ Operations <br>
 
 When starting, ESP32 will perform a self-test of the LEDs (successive lighting for 0.5 seconds of the red, green and blue LEDs), and check the availibity of an OLED screen, and display a logo if true. 
 Then it connects to the same WiFi network as that used by the home automation box, with the exception of the first launch. 
-In the monitoring phase, it will then perform all of the following tests every 30 seconds :  
+In the monitoring phase, it will then perform all of the following tests every 60 seconds (v1.11) :  
 - Network ping to the home automation box. 
 This ping ensures that the home automation box is still connected to the network, and that it is not frozen or crashed.
 - Maintaining the MQTT connection.
@@ -117,7 +122,7 @@ Not available for downloading.
 
 V1.0 – October 04, 2024
 
-Version 1.0 is the first release and release, and will support:
+Version 1.0 is the first release and support:
 -	An OLED screen of type SH1106 or SSD1306 (optional), 
 -	A status indicator per RGB LED diode (or 3 separate red, green and blue LEDs), 
 -	Wifi and MQTT parameters recorded in EEPROM memory,
@@ -135,3 +140,6 @@ v1.1 – October 11, 2024
 	* Behavior when the Wifi credentials entered in AP mode are wrong,
 	* Removing the 30-second timeout after initialization.<br>
 
+v1.11 - November 2nd, 2024
+
+Time cycle for tests is more longer from 30 seconds to 1 minute, in order to allow updating of domotic system if takes more time than expected in some cases, specially for MQTT. A stop/restart will occur now 5 minutes after an error rises up instead of 2 minutes and half.
