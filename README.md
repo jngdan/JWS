@@ -73,6 +73,12 @@ v1.11 - 02 Novembre 2024
 Augmentation du temps de cycle des tests de 30 secondes à 1 minute, permettant au système hôte de procéder à certaines mises à jour pouvant être plus longues que prévues, en particulier pour MQTT. Un arrêt/marche ne sera déclenché que 5 minutes  
 après l'apparition d'une erreur, au lieu de 2 minutes 30 secondes.
 
+v1.2 - 09 Novembre 2024
+
+Cette version apporte les évolutions suivantes :
+-	Après l’initialisation du module, il y a une vérification permanente de la connectivité avec le réseau WiFi défini dans les paramètres. En cas de détection de déconnexion du réseau, on tente de se reconnecter et si la tentative n’aboutit  pas, on effectue un RESET du JWS.
+-	Définition du nom d’hôte ‘JWS_ESP32’ permettant l’identification du module sur le réseau WiFI. 
+
 ----------------------------
 
 [UK]
@@ -143,3 +149,10 @@ v1.1 – October 11, 2024
 v1.11 - November 2nd, 2024
 
 Time cycle for tests is longer from 30 seconds to 1 minute, in order to allow updating of system if takes more time than expected in some cases, especially for MQTT. A stop/restart will occur now 5 minutes after an error rises up instead of 2 minutes and half.
+
+v1.2 - November 09, 2024
+
+This version brings the following changes:
+-	After initializing the module, a permanent WiFi connectivity check (as defined in the settings) is performed. If any network disconnection is detected, JWS will attempt to reconnect and if is unsuccessful, perform a JWS resetting.
+-	Setting the hostname 'JWS_ESP32' in order to facilitate module identification on WiFi network. 
+
