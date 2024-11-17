@@ -28,7 +28,7 @@ Principe de fonctionnement<br/>
 
 Au démarrage, l’ESP32 va effectuer un autotest des LED (allumage successif pendant 0,5 secondes des LED rouge, verte et bleue), et vérifier la présence d’un écran OLED et afficher le cas échéant un logo. 
 Puis il se connecte sur le même réseau Wifi que celui utilisé par la box domotique, à l’exception du premier lancement. 
-En phase de surveillance, il va ensuite effectuer toutes les 60 secondes (v1.11) l’ensemble des tests suivants :  
+En phase de surveillance, il va ensuite effectuer toutes les 60 secondes (à partir de la v1.11) l’ensemble des tests suivants :  
 -	Ping réseau vers la box domotique.<br> 
 Ce ping permet de s’assurer que la box domotique est toujours connectée au réseau, et qu’elle n’est pas figée ou plantée.  
 -	Maintien de la connexion MQTT.<br>
@@ -106,7 +106,7 @@ Operations <br>
 
 When starting, ESP32 will perform a self-test of the LEDs (successive lighting for 0.5 seconds of the red, green and blue LEDs), and check the availibity of an OLED screen, and display a logo if true. 
 Then it connects to the same WiFi network as that used by the home automation box, with the exception of the first launch. 
-In the monitoring phase, it will then perform all of the following tests every 60 seconds (v1.11) :  
+In the monitoring phase, it will then perform all of the following tests every 60 seconds (from v1.11) :  
 - Network ping to the home automation box. 
 This ping ensures that the home automation box is still connected to the network, and that it is not frozen or crashed.
 - Maintaining the MQTT connection.
