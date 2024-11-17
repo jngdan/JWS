@@ -56,7 +56,7 @@ La version 1.0 est la première version diffusée et mise en service, et va pren
 -	La mémorisation des paramètres Wifi et MQTT en mémoire EEPROM,
 -	La gestion de la connexion au réseau Wifi avec les paramètres renseignés,
 -	Les mises à jour par procédure OTA, soit par serveur web dédié, soit par l’IDE ARduino.
-Ainsi que la correction de quelques bugs résiduels mineurs.
+- 	Ainsi que la correction de quelques bugs résiduels mineurs.
 
 V1.1 – 11 Octobre 2024
 
@@ -134,7 +134,7 @@ Version 1.0 is the first release and support:
 -	Wifi and MQTT parameters recorded in EEPROM memory,
 -	Connection management to the Wi-Fi network with the defined parameters,
 -	Updates with OTA procedure, either by dedicated web server or the Arduino IDE.
-As well as the correction of some minor residual bugs.
+- 	As well as the correction of some minor residual bugs.
 
 v1.1 – October 11, 2024
 
