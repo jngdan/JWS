@@ -63,7 +63,7 @@ String updatePage = R"rawliteral(
       </style>
     </head>
     <body>
-    <h1>Mode de fonctionnement la box Jeedom</h1>
+    <h1>Mode de fonctionnement</h1>
      <button onclick="sendState('Maintenance')">Maintenance</button>
      <button onclick="sendState('Opérationnel')">Opérationnel</button>
      <p id="status">Mode : </p>
