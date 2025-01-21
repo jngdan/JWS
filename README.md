@@ -81,9 +81,8 @@ Cette version apporte les évolutions suivantes :
 
 v1.3 - 20 Janvier 2025
 
-Ajout d’une fonction de mode maintenance/opérationnel permettant de suspendre la surveillance de la box domotique.
-
-Amélioration des interfaces web.   
+-	Ajout d’une fonction de mode maintenance/opérationnel permettant de suspendre la surveillance de la box domotique.
+-	Amélioration des interfaces web.   
 
 ----------------------------
 
@@ -164,6 +163,5 @@ This version brings the following changes:
 
 v1.3 - January 20, 2025
 
-Added a maintenance/operational mode function to suspend the monitoring of the home automation box.
-
-Improved web interfaces.
+-	Added a maintenance/operational mode function to suspend the monitoring of the home automation box.
+-	Improved web interfaces.
