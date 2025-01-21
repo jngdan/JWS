@@ -43,7 +43,7 @@ Dans tous les cas, toute(s) détection(s) d’erreur(s) seront signalées par un
 <u>Historique des versions</u><br/>
 
 V0.1 – 06 Septembre 2024
-Version initiale
+(Version initiale)
 
 Cette version est minimaliste et ne gère aucun dispositif de retour d’état (écran OLED ou LED). Tous les paramètres Wifi et MQTT (serveur, mots de passe, @IP, ports) sont codés directement dans le fichier source.<br>
 Non proposée en téléchargement.
@@ -127,7 +127,7 @@ In all cases, all failures detection will be highlighted with a display of a sum
 Versions history<br/>
 
 V0.1 – September 06, 2024
-Initial Release
+(Initial Release)
 
 This version is minimalist and does not manage any status feedback device (OLED or LED screen). All Wifi and MQTT settings (server, passwords, @IP, ports) are directly encoded in the source file.<br> 
 Not available for downloading.
