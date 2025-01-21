@@ -77,7 +77,13 @@ v1.2 - 09 Novembre 2024
 
 Cette version apporte les évolutions suivantes :
 -	Après l’initialisation du module, il y a une vérification permanente de la connectivité avec le réseau WiFi défini dans les paramètres. En cas de détection de déconnexion du réseau, on tente de se reconnecter et si la tentative n’aboutit  pas, on effectue un RESET du JWS.
--	Définition du nom d’hôte ‘JWS_ESP32’ permettant l’identification du module sur le réseau WiFI. 
+-	Définition du nom d’hôte ‘JWS_ESP32’ permettant l’identification du module sur le réseau WiFI.
+
+v1.3 - 20 Janvier 2025
+
+Ajout d’une fonction de mode maintenance/opérationnel permettant de suspendre la surveillance de la box domotique.
+
+Amélioration des interfaces web.   
 
 ----------------------------
 
@@ -156,3 +162,8 @@ This version brings the following changes:
 -	After initializing the module, a permanent WiFi connectivity check (as defined in the settings) is performed. If any network disconnection is detected, JWS will attempt to reconnect and if is unsuccessful, perform a JWS resetting.
 -	Setting the hostname 'JWS_ESP32' in order to facilitate module identification on WiFi network. 
 
+v1.3 - January 20, 2025
+
+Added a maintenance/operational mode function to suspend the monitoring of the home automation box.
+
+Improved web interfaces.
