@@ -82,7 +82,11 @@ Cette version apporte les évolutions suivantes :
 v1.3 - 20 Janvier 2025
 
 -	Ajout d’une fonction de mode maintenance/opérationnel permettant de suspendre la surveillance de la box domotique.
--	Amélioration des interfaces web.   
+-	Amélioration des interfaces web.
+
+V1.31 – 15 mars 2025
+
+-	Augmentation du time out lors de la perte de la connexion Wifi.   
 
 ----------------------------
 
@@ -165,3 +169,7 @@ v1.3 - January 20, 2025
 
 -	Added a maintenance/operational mode function to suspend the monitoring of the home automation box.
 -	Improved web interfaces.
+
+V1.31 – March 15, 2025
+
+-	Increased time out when losing Wifi connection.
