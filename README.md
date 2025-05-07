@@ -22,7 +22,7 @@ L’ensemble du matériel s’articule autour :
 -	D’un câble USB-C to USB-C mâle (prise USB-C OUT vers la box),
 -	D’un boitier (dimensions intérieures minimales : L120 x l75 x h27 mm),
 -	D’une feuille acrylique translucide fumée de 75x35x1mm (cache pour l’écran OLED),
--	De la quincaillerie standard (vis, rondelles, et écrous de 1.6, 2.5 et 3mm), du câblage (calibre 22 AWG), de la gaine thermo-rétractable.
+-	De la quincaillerie standard (vis, rondelles, et écrous de 1.6, 2.5 et 3mm), du câblage (calibre 20 et 22-24 AWG), de la gaine thermo-rétractable.
 
 Principe de fonctionnement<br/>
 
@@ -109,7 +109,7 @@ Material needed :
 - A male USB-C to USB-C cable (USB-C OUT socket to the box),
 - A case (inside dimensions must be at least L120 x W75 x H27 mm),
 - A translucent smoked acrylic sheet L75 x W35 x H1mm (cover for the OLED screen),
-- Standard hardware (1.6, 2.5 and 3mm screws, washers, and nuts), wiring (22 AWG gauge), heat shrink tubing.
+- Standard hardware (1.6, 2.5 and 3mm screws, washers, and nuts), wiring (20 and 22-24 AWG gauge), heat shrink tubing.
 
 Operations <br>
 
